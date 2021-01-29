@@ -1,0 +1,23 @@
+<div class="panel panel-default">  
+  <div class="page-header">    
+    <h3>Details</h3>    
+  </div>
+  <div *ngIf="countryDetails">    
+    <p>Name: {{countryDetails?.name}}</p>
+    <p>Region: {{countryDetails?.region}}</p>
+    <p>Sub-Region: {{countryDetails?.subregion}}</p>
+    <p>Population: {{countryDetails?.population}}</p>
+    <p>Capital: {{countryDetails?.capital}}</p>
+    <p>Currencies: 
+      <span *ngFor="let currency of countryDetails.currencies; let i = index">{{currency.name}}
+        <span *ngIf="countryDetails.currencies.length - 1 > i">, </span>
+      </span>      
+    </p>
+    <p>Languages: 
+      <span *ngFor="let language of countryDetails.languages; let j = index">{{language.name}}
+        <span *ngIf="countryDetails.languages.length - 1 > j">, </span>
+      </span>      
+    </p>
+  </div>
+  <button class="btn btn-primary" (click)="backToList()">Go back</button>
+</div>
